@@ -1,26 +1,11 @@
-<<<<<<< HEAD
-from fastapi import FastAPI
-=======
 from fastapi import FastAPI, Query
 
 from produto.produto_database import ProdutosDAO
 from produto.produto_model import Produto
 from produto.produto_service import ProdutoService
->>>>>>> 58d67e4 (iniciando a api)
 
 app = FastAPI()
 
-
-<<<<<<< HEAD
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-=======
 produtoDao = ProdutosDAO()
 
 @app.get("/produtos")
@@ -45,4 +30,3 @@ async def criar_produto(produto: Produto):
     produto.descricao = produto.descricao.upper()
     produto_id = produtoDao.criar_produto(produto)
     return {"message": f"{produto_id}"}
->>>>>>> 58d67e4 (iniciando a api)
